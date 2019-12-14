@@ -1,0 +1,6 @@
+@import 'styles';
+
+.app {
+  @include fill;
+  @include flex;
+}
