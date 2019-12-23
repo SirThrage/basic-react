@@ -3,6 +3,7 @@ const path = require( 'path' );
 const { CleanWebpackPlugin } = require( 'clean-webpack-plugin' );
 const HtmlWebpackPlugin = require( 'html-webpack-plugin' );
 const FriendlyErrorsWebpackPlugin = require( 'friendly-errors-webpack-plugin' );
+const CopyWebpackPlugin = require( 'copy-webpack-plugin' );
 
 module.exports = {
   module: {
@@ -33,6 +34,12 @@ module.exports = {
         use: {
           loader: 'file-loader'
         }
+      },
+      {
+        test: /\.svg$/i,
+        use: {
+          loader: 'svg-inline-loader',
+        }
       }
     ]
   },
@@ -40,12 +47,24 @@ module.exports = {
     new CleanWebpackPlugin(),
     new HtmlWebpackPlugin({
       template: './public/index.html',
-      filename: './index.html'
+      filename: './index.html',
+      favicon: './public/favicon.ico',
     }),
-    new FriendlyErrorsWebpackPlugin()
+    new FriendlyErrorsWebpackPlugin(),
+    new CopyWebpackPlugin([
+      {
+        from: './public',
+        to: './public',
+        ignore: [
+          'index.html',
+          'favicon.ico',
+        ]
+      }
+    ]),
   ],
   devServer: {
     quiet: true,
+    historyApiFallback: true,
   },
   resolve: {
     alias: {
