@@ -8,7 +8,7 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.jsx?/i,
+        test: /\.jsx?$/i,
         exclude: /node_modules/,
         use: {
           loader: 'babel-loader'
@@ -50,7 +50,7 @@ module.exports = {
   resolve: {
     alias: {
       Components: path.resolve( __dirname, 'src/Components' ),
-      styles: path.resolve( __dirname, 'src/Styles/index.scss' ),
+      Styles: path.resolve( __dirname, 'src/Styles' ),
     }
   },
   output: {
