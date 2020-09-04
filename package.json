@@ -35,7 +35,7 @@
     "friendly-errors-webpack-plugin": "^1.7.0",
     "html-loader": "^0.5.5",
     "html-webpack-plugin": "^3.2.0",
-    "node-sass": "^4.13.0",
+    "node-sass": "^4.13.1",
     "sass-loader": "^8.0.0",
     "style-loader": "^1.0.1",
     "svg-inline-loader": "^0.8.0",
